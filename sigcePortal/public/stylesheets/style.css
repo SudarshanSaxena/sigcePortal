@@ -14,4 +14,10 @@ a {
   justify-content: center;
 }
 
+.post-container{
+  margin: 50px 40px 0px 40px;
+  border: 1px rgb(0, 143, 255) solid;
+  text-align: center;
+}
+
 

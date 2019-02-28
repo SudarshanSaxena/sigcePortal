@@ -1,16 +1,14 @@
 <% include ./partials/header %>
-<form class="create-post-form-container">
-    <div class="form-group ">
-      <label for="email">Email address:</label>
-      <input type="email" class="form-control" id="email">
+<form class="create-post-form-container" action="/createpost" method="POST">
+    <div class="form-group">
+      <label>Title of Post</label>
+      <input style="border: 1px black solid; height: 10px;" class="form-control" id="post-title" name="postTitle">
     </div>
     <div class="form-group">
-      <label for="pwd">Password:</label>
-      <input type="password" class="form-control" id="pwd">
+      <label>Body</label>
+      <textarea style="border: 1px black solid;height: 150px;" class="form-control" id="post-body" name="postBody"></textarea>
     </div>
-    <div class="checkbox">
-      <label><input type="checkbox"> Remember me</label>
-    </div>
+    
     <button type="submit" class="btn btn-default">Submit</button>
   </form>
 

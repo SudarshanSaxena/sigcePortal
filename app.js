@@ -13,7 +13,7 @@ var chatRouter = require('./routes/chat');
 var createpostRouter = require('./routes/createpost');
 
 var app = express();
-var password = 'Sudarshan@97'
+
 
 //database setup
 mongoose.connect('mongodb+srv://sudarshan_personal:Sudarshan@97@cluster0-n66st.mongodb.net/test?retryWrites=true',{urlencoded:true,useNewUrlParser: true});
@@ -59,7 +59,7 @@ app.use(function(req, res, next) {
 //   res.render('error');
 // });
 
-app.listen(5000,'localhost', () => {
+app.listen(5001,'localhost', () => {
   console.log('server started at port 5000')
 })
 

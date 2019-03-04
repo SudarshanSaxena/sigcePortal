@@ -11,6 +11,10 @@ var usersRouter = require('./routes/users');
 var coursesRouter = require('./routes/courses');
 var chatRouter = require('./routes/chat');
 var createpostRouter = require('./routes/createpost');
+var computerCoursesRouter = require('./routes/coumputercourses');
+var electronicsCoursesRouter = require('./routes/electronicscourses');
+var electricalCoursesRouter = require('./routes/electricalcourses');
+var mechanicalCourseRouter = require('./routes/mechanicalcourses');
 
 var app = express();
 
@@ -41,6 +45,10 @@ app.use('/users', usersRouter);
 app.use('/courses', coursesRouter);
 app.use('/chat', chatRouter);
 app.use('/createpost', createpostRouter);
+app.use('/computercourses', computerCoursesRouter);
+app.use('/electronicscourses', electronicsCoursesRouter);
+app.use('/electricalcourses',electricalCoursesRouter);
+app.use('/mechanicalcourses', mechanicalCourseRouter);
 
 
 // catch 404 and forward to error handler

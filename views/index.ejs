@@ -1,14 +1,22 @@
 <% include ./partials/header %>
 <h1>index</h1>
 <% posts.forEach(function(post){ %>
-<div class="post-container">
-    <h1>
-        <%= post.title %>
-    </h1>
-    <p>
-        <%= post.body %>
-    </p>
-</div>
+    <div class="container">
+        <div class="row space-btw-rows">
+            <div class="col-lg-12">
+                <div class="card text-center">
+                    <div class="card-block">
+                        <div class="card-title">
+                            <h2><%= post.title %></h2>
+                        </div>
+                        <div class="card-text">
+                            <p><%= post.body %></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 <% })  %>

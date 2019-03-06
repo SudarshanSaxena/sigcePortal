@@ -12,13 +12,6 @@ router.get('/', function(req, res, next) {
       res.render('index', {posts:foundPosts});
     }
   });
-  // Post.find({}, (err,foundPosts)=>{
-  //   if(err){
-  //     res.send(err);
-  //   }else{
-  //     res.render('index',{posts:foundPosts});
-  //   }
-  // });
   
 });
 

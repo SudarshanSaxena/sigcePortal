@@ -58,7 +58,7 @@ app.use(function(req, res, next) {
 
 
 app.listen(5001,'localhost', () => {
-  console.log('server started at port 5000')
+  console.log('server started at 5001');
 })
 
 module.exports = app;

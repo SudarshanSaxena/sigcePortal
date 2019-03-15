@@ -1,7 +1,14 @@
 var express = require('express');
 var router = express.Router();
+var loggedin = function (req, res, next) {
+    if (req.isAuthenticated()) {
+        next()
+    } else {
+        res.redirect('/users/login');
+    }
+}
 
-router.get('/', (req, res) => {
+router.get('/',loggedin ,(req, res) => {
     res.render('electricalcourses');
 });
 

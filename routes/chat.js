@@ -1,9 +1,19 @@
 var express = require('express');
 var router = express.Router();
 
-router.get('/', (req, res) => {
+var loggedin = function (req, res, next) {
+    if (req.isAuthenticated()) {
+        next()
+    } else {
+        res.redirect('/users/login');
+    }
+}
+
+router.get('/', loggedin, (req, res) => {
     res.render('chat');
 });
+
+
 
 
 module.exports = router;

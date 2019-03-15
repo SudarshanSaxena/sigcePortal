@@ -56,6 +56,19 @@
         </div>
     </nav>
     <p>Login </p>
+    <form class="user-form" action="/auth/login" method="post">
+        <div class="form-group">
+            <label for="username">User Registration Number</label>
+            <input type="text" name="username" class="form-control" id="username" placeholder="Enter Registration Number ">
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+        </div>
+
+        <button type="submit" class="btn btn-success">Login</button>
+    </form>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 

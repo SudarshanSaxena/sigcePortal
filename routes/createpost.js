@@ -4,12 +4,20 @@ var Post = require('../models/Post');
 var mongoose = require('mongoose');
 var Post = require('../models/Post');
 
+var loggedin = function (req, res, next) {
+    if (req.isAuthenticated()) {
+        next()
+    } else {
+        res.redirect('/users/login');
+    }
+}
 
-router.get('/', (req, res) => {
+
+router.get('/',loggedin ,(req, res) => {
     res.render('createpost');
 });
 
-router.post('/', (req,res) => {
+router.post('/',loggedin ,(req,res) => {
     var title = req.body.postTitle;
     var body = req.body.postBody;
     var newPost = {title:title,body:body};

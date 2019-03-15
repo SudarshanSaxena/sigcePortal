@@ -2,48 +2,60 @@ var express = require('express');
 var router = express.Router();
 var M3 = require('../models/ComputerModels/M3');
 
-router.get('/', (req, res) => {
+var loggedin = function (req, res, next) {
+    if (req.isAuthenticated()) {
+        next()
+    } else {
+        res.redirect('/users/login');
+    }
+}
+
+router.get('/', loggedin, (req, res) => {
     res.render('computercourse');
 });
 
 //sem 3
-router.get('/m3', (req, res) => {
-    M3.find({}).sort('-date').exec(function(err, foundPosts){
-        if(err){
-          res.send(err);
+router.get('/m3', loggedin, (req, res) => {
+    M3.find({}).sort('-date').exec(function (err, foundPosts) {
+        if (err) {
+            res.send(err);
+        } else {
+            res.render('computer/m3', {
+                posts: foundPosts
+            });
         }
-        else{
-          res.render('computer/m3', {posts:foundPosts});
-        }
-      });
+    });
 });
 
-router.post('/m3', (req, res) => {
+router.post('/m3', loggedin, (req, res) => {
     var title = req.body.postTitle;
     var body = req.body.postBody;
-    var newPost = {title:title,body:body};
-    M3.create(newPost,(err,createdPost)=>{
-        if(err){
+    var newPost = {
+        title: title,
+        body: body
+    };
+    M3.create(newPost, (err, createdPost) => {
+        if (err) {
             res.send(err);
-        }else{
+        } else {
             res.redirect('/computercourses/m3');
         }
     })
 })
 
-router.get('/ds', (req, res) => {
+router.get('/ds', loggedin, (req, res) => {
     res.render('computer/ds')
 });
 
-router.get('/dlda', (req, res) => {
+router.get('/dlda', loggedin, (req, res) => {
     res.render('computer/dlda')
 });
 
-router.get('/dis', (req, res) => {
+router.get('/dis', loggedin, (req, res) => {
     res.render('computer/dis')
 });
 
-router.get('/eccf', (req, res) => {
+router.get('/eccf', loggedin, (req, res) => {
     res.render('computer/eccf')
 });
 

@@ -73,7 +73,7 @@ app.use(express.urlencoded({
 app.use(cookieParser());
 app.use(express.static(__dirname + '/public', { redirect : false }));
 
-app.use('/',isLoggedIn ,indexRouter);
+app.use('/', ,indexRouter);
 //app.use('/users', usersRouter);
 app.use('/courses',isLoggedIn ,coursesRouter);
 app.use('/chat',isLoggedIn , chatRouter);

@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://bootswatch.com/4/materia/bootstrap.min.css">
     <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+        crossorigin="anonymous">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 
@@ -15,6 +17,7 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
     <title>Document</title>
 </head>
 
@@ -45,17 +48,92 @@
                     <a class="nav-link" href="/createpost">Create Post</a>
                 </li>
                 <ul class="nav navbar-nav navbar-right" style="text-align:right;">
+                    <% if (!currentUser) { %>
                     <li class="nav-item">
-                        <a href="/users/login" class="nav-link">Login</a>
+                        <a href="/login" class="nav-link">Login</a>
                     </li>
                     <li>
-                        <a href="/users/register" class="nav-link active">Register</a>
+                        <a href="/register" class="nav-link">Register</a>
                     </li>
+                    <% } else{ %>
+                    <li>
+                        <a href="/logout" class="nav-link">Logout</a>
+                    </li>
+                    <% } %>
                 </ul>
             </ul>
         </div>
     </nav>
     <p>Register </p>
+    <div class="container">
+        <form class="user-form" action="/register" method="post">
+
+            <div class="form-group">
+                <label for="username">User Registration Number</label>
+                <input type="text" name="username" class="form-control" id="username" placeholder="Enter Registration Number ">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Confirm Password</label>
+                <input type="password" name="confirmPassword" class="form-control" id="confirmPassword" placeholder="Confirm Password">
+            </div>
+
+            <div class="form-group">
+                <label for="usersRole">Users Role</label>
+                <!-- <input type="password" name="usersRole" class="form-control" id="usersRole" placeholder="usersRole"> -->
+                <select class="form-control form-coltrol-sm" name="usersRole" id="usersRole">
+                    <option value="none">-</option>
+                    <option value="admin">Admin</option>
+                    <option value="student">Student</option>
+                    <option value="guest">Guest</option>
+                    <option value="alumni">Alumni</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="usersName">Name of the User</label>
+                <input type="text" name="usersName" class="form-control" id="usersName" placeholder="Name">
+            </div>
+
+            <div class="form-group">
+                <label for="usersPhone">Phone Number</label>
+                <input type="number" name="usersPhone" class="form-control" id="usersPhone" placeholder="Phone number">
+            </div>
+
+            <div class="form-group">
+                <label for="usersName">Email of the user</label>
+                <input type="email" name="usersEmail" class="form-control" id="usersEmail" placeholder="Email">
+            </div>
+
+            <div class="form-group">
+                <label for="usersDepartment">Department of the User</label>
+                <!-- <input type="text" name="usersDepartment" class="form-control" id="usersDepartment" placeholder="Name"> -->
+                <select name="usersDepartment" class="form-control form-coltrol-sm" id="usersDepartment">
+                    <option value="none">-</option>
+                    <option value="computer">Computer Engineering</option>
+                    <option value="extc">EXTC</option>
+                    <option value="etrx">Electrical Engineering</option>
+                    <option value="mech">Mechanical Engineering</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="usersBatch">Year of Passing</label>
+                <input type="number" name="usersBatch" class="form-control" id="usersBatch" placeholder="Year">
+            </div>
+
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+    </div>
+
+
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 

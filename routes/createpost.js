@@ -9,18 +9,27 @@ router.get('/', (req, res) => {
     res.render('createpost');
 });
 
-router.post('/', (req,res) => {
+router.post('/', (req, res) => {
     var title = req.body.postTitle;
     var body = req.body.postBody;
-    var newPost = {title:title,body:body};
-    Post.create(newPost,(err,createdPost)=>{
-        if(err){
+    var author = {
+        id: req.user._id,
+        username: req.user.username,
+        usersName: req.user.usersName
+    }
+    var newPost = {
+        title: title,
+        body: body,
+        author: author
+    };
+    Post.create(newPost, (err, createdPost) => {
+        if (err) {
             res.send(err);
-        }else{
+        } else {
             res.redirect('/');
         }
     })
-    
+
 })
 
 

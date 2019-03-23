@@ -45,18 +45,31 @@
                     <a class="nav-link" href="/createpost">Create Post</a>
                 </li>
                 <ul class="nav navbar-nav navbar-right" style="text-align:right;">
+                    <% if (!currentUser) { %>
                     <li class="nav-item">
-                        <a href="/users/login" class="nav-link">Login</a>
+                        <a href="/login" class="nav-link">Login</a>
                     </li>
                     <li>
-                        <a href="/users/register" class="nav-link">Register</a>
+                        <a href="/register" class="nav-link">Register</a>
                     </li>
+                    <% } else{ %>
+                    <li>
+                        <a href="/logout" class="nav-link">Logout</a>
+                    </li>
+                    <% } %>
                 </ul>
             </ul>
         </div>
     </nav>
 
+    <h1>
+        <% currentUser.username %>
+    </h1>
+
     <h1>index</h1>
+    <h1>
+        <%= currentUser.usersName %>
+    </h1>
     <% posts.forEach(function(post){ %>
     <div class="container">
         <div class="row space-btw-rows">
@@ -67,6 +80,9 @@
                             <h2>
                                 <%= post.title %>
                             </h2>
+                        </div>
+                        <div>
+                            <p><%= post.author.usersName %></p>
                         </div>
                         <div class="card-text">
                             <p>

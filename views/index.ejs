@@ -65,9 +65,11 @@
     
 
     <h1>index</h1>
+    <% if (currentUser) { %>
     <h1>
         <%= currentUser.usersName %>
     </h1>
+    <% } %>
     <% posts.forEach(function(post){ %>
     <div class="container">
         <div class="row space-btw-rows">

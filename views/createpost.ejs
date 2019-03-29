@@ -45,19 +45,19 @@
 					<a class="nav-link" href="/createpost">Create Post</a>
 				</li>
 				<ul class="nav navbar-nav navbar-right" style="text-align:right;">
-                    <% if (!currentUser) { %>
-                    <li class="nav-item">
-                        <a href="/login" class="nav-link">Login</a>
-                    </li>
-                    <li>
-                        <a href="/register" class="nav-link">Register</a>
-                    </li>
-                    <% } else{ %>
-                    <li>
-                        <a href="/logout" class="nav-link">Logout</a>
-                    </li>
-                    <% } %>
-                </ul>
+					<% if (!currentUser) { %>
+					<li class="nav-item">
+						<a href="/login" class="nav-link">Login</a>
+					</li>
+					<li>
+						<a href="/register" class="nav-link">Register</a>
+					</li>
+					<% } else{ %>
+					<li>
+						<a href="/logout" class="nav-link">Logout</a>
+					</li>
+					<% } %>
+				</ul>
 			</ul>
 		</div>
 	</nav>
@@ -65,11 +65,13 @@
 	<form class="create-post-form-container" action="/createpost" method="POST">
 		<div class="form-group">
 			<label>Title of Post</label>
-			<input style="border: 1px black solid; height: 10px;" class="form-control" id="post-title" name="postTitle">
+			<input style="border: 1px rgb(0, 143, 251) solid; height: 30px; border-radius: 25px;" class="form-control" id="post-title"
+			 name="postTitle">
 		</div>
 		<div class="form-group">
 			<label>Body</label>
-			<textarea style="border: 1px black solid;height: 150px;" class="form-control" id="post-body" name="postBody"></textarea>
+			<textarea style="border: 1px rgb(0, 143, 251) solid;height: 150px; border-radius: 25px;" class="form-control" id="post-body"
+			 name="postBody"></textarea>
 		</div>
 
 		<button type="submit" class="btn btn-default">Submit</button>

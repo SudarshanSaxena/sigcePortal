@@ -10,9 +10,9 @@ a {
 }
 
 .create-post-form-container {
-  height: 800px;
-  width: 1000px;
-  margin: 50px auto 0px auto;
+  /* height: 200px;
+  width: 1000px; */
+  margin: 50px auto 20px auto;
   justify-content: center;
 }
 

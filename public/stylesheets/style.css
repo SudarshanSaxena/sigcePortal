@@ -37,3 +37,7 @@ a {
 .extra-padding {
   padding: 5px;
 }
+
+.post-content-space{
+  margin-left: 8px;
+}

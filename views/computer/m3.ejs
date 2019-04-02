@@ -64,7 +64,7 @@
 
 
 
-    <h1>m3</h1>
+    <h1>Dis</h1>
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -86,7 +86,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form class="create-post-form-container" action="/computercourses/m3" method="POST">
+                            <form class="create-post-form-container" action="/computercourses/dis" method="POST">
                                 <div class="form-group">
                                     <label>Title of Post</label>
                                     <input style="border: 1px black solid; height: 30px;" class="form-control"
@@ -118,14 +118,22 @@
 
                 <div class="row space-btw-rows">
                     <div class="col-lg-12">
-                        <div class="card text-center">
-                            <div class="card-block">
-                                <div class="card-title">
+                        <div class="card">
+                            <div class="card-block post-content-space">
+                                <div class="card-title text-center">
                                     <h2>
                                         <%= post.title %>
                                     </h2>
+
                                 </div>
                                 <div class="card-text">
+                                    <h4>
+                                        <%= post.author.usersName %>
+                                    </h4>
+                                    <h5>
+                                        <%= post.date.toDateString(); %>
+                                    </h5>
+                                    <br>
                                     <p>
                                         <%= post.body %>
                                     </p>

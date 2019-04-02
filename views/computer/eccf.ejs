@@ -21,17 +21,17 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <a class="navbar-brand" href="/">
-            <img src="http://sigce.edu.in/images/logo-170x172.png" width="30" height="30" class="d-inline-block align-top"
-                alt="">
+            <img src="http://sigce.edu.in/images/logo-170x172.png" width="30" height="30"
+                class="d-inline-block align-top" alt="">
             Sigce Portal
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01"
-            aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarColor01">
-            <ul class="navbar-nav mr-auto navbar-right">
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-item ">
                     <a class="nav-link" href="/">Home</a>
                 </li>
@@ -44,25 +44,115 @@
                 <li class="nav-item ">
                     <a class="nav-link" href="/createpost">Create Post</a>
                 </li>
-                <ul class="nav navbar-nav navbar-right" style="text-align:right;">
-                    <% if (!currentUser) { %>
-                    <li class="nav-item">
-                        <a href="/login" class="nav-link">Login</a>
-                    </li>
-                    <li>
-                        <a href="/register" class="nav-link">Register</a>
-                    </li>
-                    <% } else{ %>
-                    <li>
-                        <a href="/logout" class="nav-link">Logout</a>
-                    </li>
-                    <% } %>
-                </ul>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" style="text-align:right;">
+                <% if (!currentUser) { %>
+                <li class="nav-item">
+                    <a href="/login" class="nav-link">Login</a>
+                </li>
+                <li>
+                    <a href="/register" class="nav-link">Register</a>
+                </li>
+                <% } else{ %>
+                <li>
+                    <a href="/logout" class="nav-link">Logout</a>
+                </li>
+                <% } %>
             </ul>
         </div>
     </nav>
 
-    <h1>eccf</h1>
+
+
+    <h1>Dis</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+            </div>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                Add Announcement
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="create-post-form-container" action="/computercourses/eccf" method="POST">
+                                <div class="form-group">
+                                    <label>Title of Post</label>
+                                    <input style="border: 1px black solid; height: 30px;" class="form-control"
+                                        id="post-title" name="postTitle">
+                                </div>
+                                <div class="form-group">
+                                    <label>Body</label>
+                                    <textarea style="border: 1px black solid;height: 150px;" class="form-control"
+                                        id="post-body" name="postBody"></textarea>
+                                </div>
+
+                                <button type="submit" class="btn btn-default">Submit</button>
+                            </form>
+                        </div>
+                        <!-- <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+
+
+                <% posts.forEach(function(post){ %>
+
+                <div class="row space-btw-rows">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-block post-content-space">
+                                <div class="card-title text-center">
+                                    <h2>
+                                        <%= post.title %>
+                                    </h2>
+
+                                </div>
+                                <div class="card-text">
+                                    <h4>
+                                        <%= post.author.usersName %>
+                                    </h4>
+                                    <h5>
+                                        <%= post.date.toDateString(); %>
+                                    </h5>
+                                    <br>
+                                    <p>
+                                        <%= post.body %>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <% })  %>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
 
 
 </body>

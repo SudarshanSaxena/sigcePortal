@@ -7,6 +7,8 @@ var DLDA = require('../models/ComputerModels/DLDA');
 var ECCF = require('../models/ComputerModels/ECCF');
 var M4 = require('../models/ComputerModels/M4');
 var AOA = require('../models/ComputerModels/AOA');
+var OS = require('../models/ComputerModels/OS');
+var CG = require('../models/ComputerModels/CG');
 
 router.get('/', (req, res) => {
     res.render('computercourse');
@@ -288,6 +290,73 @@ router.post('/coa', (req, res) => {
     });
 });
 
+router.get('/os', (req, res) => {
+    OS.find({}).sort('-date').exec(function (err, foundPosts) {
+        if (err) {
+            res.send(err);
+        } else {
+            res.render('computer/coa', {
+                posts: foundPosts
+            });
+        }
+    });
+});
+
+router.post('/os', (req, res) => {
+    var title = req.body.postTitle;
+    var body = req.body.postBody;
+    var author = {
+        id: req.user._id,
+        username: req.user.username,
+        usersName: req.user.usersName
+    }
+    var newPost = {
+        title: title,
+        body: body,
+        author: author
+    };
+    OS.create(newPost, (err, createdPost) => {
+        if (err) {
+            res.send(err);
+        } else {
+            res.redirect('/computercourses/coa');
+        }
+    });
+});
+
+router.get('/cg', (req, res) => {
+    CG.find({}).sort('-date').exec(function (err, foundPosts) {
+        if (err) {
+            res.send(err);
+        } else {
+            res.render('computer/coa', {
+                posts: foundPosts
+            });
+        }
+    });
+});
+
+router.post('/cg', (req, res) => {
+    var title = req.body.postTitle;
+    var body = req.body.postBody;
+    var author = {
+        id: req.user._id,
+        username: req.user.username,
+        usersName: req.user.usersName
+    }
+    var newPost = {
+        title: title,
+        body: body,
+        author: author
+    };
+    CG.create(newPost, (err, createdPost) => {
+        if (err) {
+            res.send(err);
+        } else {
+            res.redirect('/computercourses/coa');
+        }
+    });
+});
 
 
 

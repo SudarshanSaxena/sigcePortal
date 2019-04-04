@@ -16,20 +16,20 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <title>Document</title>
     <link rel="stylesheet" href="stylesheets/style.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <a class="navbar-brand" href="/">
-            <img src="http://sigce.edu.in/images/logo-170x172.png" width="30" height="30" class="d-inline-block align-top"
-                alt="">
+            <img src="http://sigce.edu.in/images/logo-170x172.png" width="30" height="30"
+                class="d-inline-block align-top" alt="">
             Sigce Portal
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01"
-            aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -44,9 +44,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/chat">Chat</a>
                 </li>
+                <% if (currentUser && currentUser.usersRole == 'admin') { %>
                 <li class="nav-item ">
                     <a class="nav-link" href="/createpost">Create Post</a>
                 </li>
+                <% } %>
                 <ul class="nav navbar-nav navbar-right" style="text-align:right;">
                     <% if (!currentUser) { %>
                     <li class="nav-item">
@@ -71,7 +73,8 @@
                 <div class="card text-center">
                     <div class="card-block">
                         <div class="card-title">
-                            <img class="img-fluid extra-padding" src="https://img.icons8.com/nolan/64/000000/laptop.png">
+                            <img class="img-fluid extra-padding"
+                                src="https://img.icons8.com/nolan/64/000000/laptop.png">
                             <h4>Computer Engineering</h4>
                         </div>
                         <div class="card-text">
@@ -84,7 +87,8 @@
                 <div class="card text-center">
                     <div class="card-block">
                         <div class="card-title">
-                            <img class="img-fluid extra-padding" src="https://img.icons8.com/nolan/64/000000/barcode-scanner.png">
+                            <img class="img-fluid extra-padding"
+                                src="https://img.icons8.com/nolan/64/000000/barcode-scanner.png">
                             <h4>Electronics Engineering</h4>
                         </div>
                         <div class="card-text">
@@ -100,7 +104,8 @@
                 <div class="card text-center">
                     <div class="card-block">
                         <div class="card-title">
-                            <img class="img-fluid extra-padding" src="https://img.icons8.com/nolan/64/000000/electrical.png">
+                            <img class="img-fluid extra-padding"
+                                src="https://img.icons8.com/nolan/64/000000/electrical.png">
                             <h4>Electrical Engineering</h4>
                         </div>
                         <div class="card-text">
@@ -113,7 +118,8 @@
                 <div class="card text-center">
                     <div class="card-block">
                         <div class="card-title">
-                            <img class="img-fluid extra-padding" src="https://img.icons8.com/nolan/64/000000/settings-3.png">
+                            <img class="img-fluid extra-padding"
+                                src="https://img.icons8.com/nolan/64/000000/settings-3.png">
                             <h4>Mechanical Engineering</h4>
                         </div>
                         <div class="card-text">

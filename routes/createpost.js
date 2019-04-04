@@ -10,25 +10,32 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    var title = req.body.postTitle;
-    var body = req.body.postBody;
-    var author = {
-        id: req.user._id,
-        username: req.user.username,
-        usersName: req.user.usersName
-    }
-    var newPost = {
-        title: title,
-        body: body,
-        author: author
-    };
-    Post.create(newPost, (err, createdPost) => {
-        if (err) {
-            res.send(err);
-        } else {
-            res.redirect('/');
+
+    if (req.user.usersRole != 'admin') {
+        res.send("Unauthorized Action!");
+    } else {
+        var title = req.body.postTitle;
+        var body = req.body.postBody;
+        var author = {
+            id: req.user._id,
+            username: req.user.username,
+            usersName: req.user.usersName
         }
-    })
+        var newPost = {
+            title: title,
+            body: body,
+            author: author
+        };
+        Post.create(newPost, (err, createdPost) => {
+            if (err) {
+                res.send(err);
+            } else {
+                res.redirect('/');
+            }
+        })
+    }
+
+
 
 })
 

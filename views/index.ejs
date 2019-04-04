@@ -64,7 +64,10 @@
 
 
 
-    <h4><%= currentUser.usersName %></h4>
+    <% if(currentUser){ %>
+        <h4><%= currentUser.usersName %></h4>
+    <% } %>
+    
     <div class="container">
         
 

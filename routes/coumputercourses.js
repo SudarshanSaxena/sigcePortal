@@ -5,6 +5,8 @@ var DIS = require('../models/ComputerModels/DIS');
 var DS = require('../models/ComputerModels/DS');
 var DLDA = require('../models/ComputerModels/DLDA');
 var ECCF = require('../models/ComputerModels/ECCF');
+var M4 = require('../models/ComputerModels/M4');
+var AOA = require('../models/ComputerModels/AOA');
 
 router.get('/', (req, res) => {
     res.render('computercourse');
@@ -161,7 +163,7 @@ router.get('/eccf', (req, res) => {
     });
 });
 
-router.post('/eccf', (req,res)=>{
+router.post('/eccf', (req, res) => {
     var title = req.body.postTitle;
     var body = req.body.postBody;
     var author = {
@@ -181,7 +183,112 @@ router.post('/eccf', (req,res)=>{
             res.redirect('/computercourses/eccf');
         }
     });
-})
+});
+
+//sem 4
+router.get('/m4', (req, res) => {
+    M4.find({}).sort('-date').exec(function (err, foundPosts) {
+        if (err) {
+            res.send(err);
+        } else {
+            res.render('computer/m4', {
+                posts: foundPosts
+            });
+        }
+    });
+});
+
+router.post('/m4', (req, res) => {
+    var title = req.body.postTitle;
+    var body = req.body.postBody;
+    var author = {
+        id: req.user._id,
+        username: req.user.username,
+        usersName: req.user.usersName
+    }
+    var newPost = {
+        title: title,
+        body: body,
+        author: author
+    };
+    M4.create(newPost, (err, createdPost) => {
+        if (err) {
+            res.send(err);
+        } else {
+            res.redirect('/computercourses/m4');
+        }
+    });
+});
+
+router.get('/aoa', (req, res) => {
+    AOA.find({}).sort('-date').exec(function (err, foundPosts) {
+        if (err) {
+            res.send(err);
+        } else {
+            res.render('computer/aoa', {
+                posts: foundPosts
+            });
+        }
+    });
+});
+
+router.post('/aoa', (req, res) => {
+    var title = req.body.postTitle;
+    var body = req.body.postBody;
+    var author = {
+        id: req.user._id,
+        username: req.user.username,
+        usersName: req.user.usersName
+    }
+    var newPost = {
+        title: title,
+        body: body,
+        author: author
+    };
+    AOA.create(newPost, (err, createdPost) => {
+        if (err) {
+            res.send(err);
+        } else {
+            res.redirect('/computercourses/aoa');
+        }
+    });
+});
+
+router.get('/coa', (req, res) => {
+    COA.find({}).sort('-date').exec(function (err, foundPosts) {
+        if (err) {
+            res.send(err);
+        } else {
+            res.render('computer/coa', {
+                posts: foundPosts
+            });
+        }
+    });
+});
+
+router.post('/coa', (req, res) => {
+    var title = req.body.postTitle;
+    var body = req.body.postBody;
+    var author = {
+        id: req.user._id,
+        username: req.user.username,
+        usersName: req.user.usersName
+    }
+    var newPost = {
+        title: title,
+        body: body,
+        author: author
+    };
+    COA.create(newPost, (err, createdPost) => {
+        if (err) {
+            res.send(err);
+        } else {
+            res.redirect('/computercourses/coa');
+        }
+    });
+});
+
+
 
 
 module.exports = router;

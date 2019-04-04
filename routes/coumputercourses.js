@@ -295,7 +295,7 @@ router.get('/os', (req, res) => {
         if (err) {
             res.send(err);
         } else {
-            res.render('computer/coa', {
+            res.render('computer/os', {
                 posts: foundPosts
             });
         }
@@ -319,7 +319,7 @@ router.post('/os', (req, res) => {
         if (err) {
             res.send(err);
         } else {
-            res.redirect('/computercourses/coa');
+            res.redirect('/computercourses/os');
         }
     });
 });
@@ -329,7 +329,7 @@ router.get('/cg', (req, res) => {
         if (err) {
             res.send(err);
         } else {
-            res.render('computer/coa', {
+            res.render('computer/cg', {
                 posts: foundPosts
             });
         }
@@ -353,7 +353,7 @@ router.post('/cg', (req, res) => {
         if (err) {
             res.send(err);
         } else {
-            res.redirect('/computercourses/coa');
+            res.redirect('/computercourses/cg');
         }
     });
 });

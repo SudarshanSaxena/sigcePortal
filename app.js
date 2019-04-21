@@ -28,7 +28,7 @@ var app = express();
 
 
 //database setup
-mongoose.connect('mongodb+srv://sudarshan_personal:Sudarshan@97@cluster0-n66st.mongodb.net/test?retryWrites=true', {
+mongoose.connect('mongodb+srv://sudarshan_personal:Sudarshan97@cluster0-n66st.mongodb.net/test?retryWrites=true', {
   urlencoded: true,
   useNewUrlParser: true
 });

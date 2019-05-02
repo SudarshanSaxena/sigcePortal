@@ -41,3 +41,12 @@ a {
 .post-content-space{
   margin-left: 8px;
 }
+
+.chat li{
+  margin: 20px auto 0 auto;
+}
+.chat li a{
+  
+  margin-left: auto;
+  margin-right: auto;
+}
